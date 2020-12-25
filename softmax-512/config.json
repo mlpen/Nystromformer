@@ -1,7 +1,6 @@
 {
   "model_checkpoints": "/model/model",
   "data_folder": "/dataset",
-  "from_cp": "/model/cp-0099.model",
   "glue_dataset_folder": "/glue",
   "wikihop_dataset_folder": "/wikihop",
   "model": {
@@ -10,7 +9,7 @@
       "gelu_grad_checkpointing": true,
       "vocab_size": 50265,
       "num_sen_type": 1,
-      "max_seq_len": 4096,
+      "max_seq_len": 512,
       "embedding_dim": 768,
       "transformer_dim": 768,
       "transformer_hidden_dim": 3072,
@@ -18,21 +17,18 @@
       "dropout_prob": 0.1,
       "num_head": 12,
       "head_dim": 64,
-      "attn_type": "nystrom",
-      "num_landmarks": 512,
-      "seq_len": 4096,
-      "conv_kernel_size": 65
+      "attn_type": "softmax"
   },
   "pretraining_setting": {
-      "batch_size": 64,
-      "learning_rate": 0.00005,
+      "batch_size": 256,
+      "learning_rate": 0.0001,
       "warmup": 0.01,
       "batches_per_report": 10,
-      "batches_per_epoch": 1000,
+      "batches_per_epoch": 5000,
       "epoch": 100,
       "validate_batches_per_epoch": 100
   },
   "gpu_setting": {
-    "inst_per_gpu": 1
+    "inst_per_gpu": 8
   }
 }
