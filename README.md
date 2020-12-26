@@ -10,7 +10,7 @@ docker, nvidia-docker
 
 ## Datasets
 
-The pretraining dataset consists of English Wikipedia and BookCorpus. For pretraining on long sequence, we added $\frac{1}{3}$ Stories and $\frac{1}{3}$ Realnews. All downloaded data files should be placed in the corresponding folder under `data-preprocessing`. The original format of English Wikipedia dump is preprocessed using
+The pretraining dataset consists of English Wikipedia and BookCorpus. For pretraining on long sequence, we added one third Stories and one third Realnews. All downloaded data files should be placed in the corresponding folder under `data-preprocessing`. The original format of English Wikipedia dump is preprocessed using
 [wikiextractor](https://github.com/attardi/wikiextractor), and the resulting files are placed in `data-preprocessing/wiki`. Then, run `data-preprocessing/<dataset>/preprocess.py` under each corresponding folder to generate data files of unified format. After preprocessing, run `data-preprocessing/preprocess_data_<length>.py` to generate pretraining data of specific sequence length.
 
 ## Pretraining
