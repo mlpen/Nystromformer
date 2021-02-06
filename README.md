@@ -67,6 +67,7 @@ docker run --rm --name=wikihop \
 @article{xiong2021nystromformer,
   title={Nystr{\"o}mformer: A Nystr{\"o}m-based Algorithm for Approximating Self-Attention},
   author={Xiong, Yunyang and Zeng, Zhanpeng and Chakraborty, Rudrasis and Tan, Mingxing and Fung, Glenn and Li, Yin and Singh, Vikas},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
   year={2021}
 }
 ```
