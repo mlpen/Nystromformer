@@ -63,3 +63,10 @@ docker run --rm --name=wikihop \
 `batch_size`, `lr`, `epoch`, `checkpoint` can be changed to finetune on different hyperparameters or different checkpoints. All outputs will be redirected to `<model>/wikihop.txt`. The log file is located at `<model>/model` folder. The training can be stopped anytime by running `docker kill wikihop`, and can be resumed from the last checkpoint using the same command for starting pretraining.
 
 ## Citation
+```
+@article{xiong2021nystromformer,
+  title={Nystr{\"o}mformer: A Nystr{\"o}m-based Algorithm for Approximating Self-Attention},
+  author={Xiong, Yunyang and Zeng, Zhanpeng and Chakraborty, Rudrasis and Tan, Mingxing and Fung, Glenn and Li, Yin and Singh, Vikas},
+  year={2021}
+}
+```
