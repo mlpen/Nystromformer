@@ -1,5 +1,20 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
+### Feb 14th, 2021
+We have released the scores on individual LRA tesks and we will release our PyTorch reimplementation for running all tasks of LRA benchmark on 02/17/2021. 
+
+<p align="center">
+<img src="img/LRA.png">
+</p>
+
+### Feb 9th, 2021
+We have release the average score across LRA tasks.
+
+<p align="center">
+<img src="img/avg_LRA.png">
+</p>
+
+
 Transformers have emerged as a powerful workhorse for a broad range of natural language processing tasks. A key component that drives the impressive performance of Transformers is their self-attention mechanism that identifies/encodes the influence or dependence of other tokens for each specific token. Its benefits notwithstanding, the quadratic complexity of self-attention on the input sequence length has limited its application to longer sequences – a topic being actively studied in the community. To address this limitation, we propose Nystromformer – a model that exhibits excellent scalability as a function of sequence length. Our idea is based on adapting the Nystrom method to approximate the standard self-attention with an efficient O(n) complexity.
 
 ## Requirements
