@@ -1,7 +1,7 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
 ### Feb 14th, 2021
-We have released the scores on individual LRA tesks and we will release our PyTorch reimplementation for running all tasks of LRA benchmark on 02/17/2021. 
+We have released the scores on individual LRA tasks and we will release our PyTorch reimplementation for running all tasks of LRA benchmark on 02/17/2021. 
 
 <p align="center">
 <img src="img/LRA.png">
