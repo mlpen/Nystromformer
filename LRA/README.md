@@ -17,7 +17,7 @@ Then, run `sh create_datasets.sh` and it will create train, dev, and test datase
 
 To run the LRA tasks, one would need
 ```
-transformers==3.3.1, performer-pytorch
+pytorch==1.7.1, transformers==3.3.1, performer-pytorch
 ```
 To run a LRA experiment, run the following command in `code` folder
 ```
