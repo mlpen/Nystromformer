@@ -1,7 +1,7 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
 ### Feb 17th, 2021
-We have released the source code of PyTorch reimplementation of LRA benchmask and instructions to run LRA tasks.  
+We have released the source code of PyTorch reimplementation of LRA benchmask, which is to evaluate the generalization ability of models on diverse longer sequence tasks.
 
 ### Feb 14th, 2021
 We have released the scores on individual LRA tasks. 
