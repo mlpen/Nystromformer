@@ -1,10 +1,10 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
 ### Feb 17th, 2021
-We have released the source code of pytorch reimplementation of LRA benchmask and instructions for running LRA tasks.  
+We have released the source code of PyTorch reimplementation of LRA benchmask and instructions to run LRA tasks.  
 
 ### Feb 14th, 2021
-We have released the scores on individual LRA tasks and we will release our PyTorch reimplementation for running all tasks of LRA benchmark on 02/17/2021. 
+We have released the scores on individual LRA tasks. 
 
 <p align="center">
 <img src="img/LRA.png">
@@ -64,21 +64,6 @@ docker run --rm --name=glue \
   "python3 /code/run_glue.py --batch_size 32 --lr 3e-5 --epoch 5 --task MRPC --checkpoint 99 >> /model/glue.txt 2>&1"
 ```
 `batch_size`, `lr`, `epoch`, `task`, `checkpoint` can be changed to finetune on different task, different hyperparameters, or different checkpoints. All outputs will be redirected to `<model>/glue.txt`. The log file is located at `<model>/model` folder.
-
-## WikiHop
-
-To finetune model on WikiHop tasks, download WikiHop datasets and place the `train.json` and `dev.json` under `wikihop` folder, then under folder `<model>`, run
-```
-docker run --rm --name=wikihop \
-  --network=host --ipc=host --gpus all \
-  -v "$PWD/../wikihop:/wikihop" \
-  -v "$PWD/../code:/code" \
-  -v "$PWD:/model" \
-  -d mlpen/bert_env:0 \
-  /bin/bash -c \
-  "python3 /code/run_wikihop.py --batch_size 32 --lr 3e-5 --epoch 15 --checkpoint 69 >> /model/wikihop.txt 2>&1"
-```
-`batch_size`, `lr`, `epoch`, `checkpoint` can be changed to finetune on different hyperparameters or different checkpoints. All outputs will be redirected to `<model>/wikihop.txt`. The log file is located at `<model>/model` folder. The training can be stopped anytime by running `docker kill wikihop`, and can be resumed from the last checkpoint using the same command for starting pretraining.
 
 ## Citation
 ```
