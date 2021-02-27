@@ -49,18 +49,9 @@ class Attention(nn.Module):
             self.attn = SoftmaxAttention(config)
         elif self.attn_type == "none":
             self.attn = NoneAttention(config)
-        elif self.attn_type == "yoso-e":
-            from attention_yoso import YOSOEAttention
-            self.attn = YOSOEAttention(config)
-        elif self.attn_type.startswith("yoso"):
-            from attention_yoso import YOSOAttention
-            self.attn = YOSOAttention(config)
         elif self.attn_type.startswith("linformer"):
             from attention_linformer import LinformerAttention
             self.attn = LinformerAttention(config)
-        elif self.attn_type.startswith("longformer"):
-            from attention_longformer import LongformerAttention
-            self.attn = LongformerAttention(config, self.W_q, self.W_k, self.W_v)
         elif self.attn_type.startswith("reformer"):
             from attention_reformer import LSHAttention
             self.attn = LSHAttention(config, self.W_q, self.W_k, self.W_v)
