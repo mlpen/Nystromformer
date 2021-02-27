@@ -30,39 +30,17 @@ model_config = config["model"]
 if model_config["attn_type"] == "softmax":
     type["softmax"] = SoftmaxAttention
 
-elif model_config["attn_type"] == "autoencoder":
-    from attention_autoencoder import AutoEncoderAttention
-    type["autoencoder"] = AutoEncoderAttention
-
 elif model_config["attn_type"] == "nystrom":
     from attention_nystrom import NystromAttention
     type["nystrom"] = NystromAttention
-
-elif model_config["attn_type"] == "sampling":
-    from attention_sampling import SamplingAttention
-    type["sampling"] = SamplingAttention
-
-elif model_config["attn_type"] == "subspace":
-    from attention_subspace import SubspaceAttention
-    type["subspace"] = SubspaceAttention
 
 elif model_config["attn_type"] == "reformer":
     from attention_reformer import LSHAttention
     type["reformer"] = LSHAttention
 
-elif model_config["attn_type"] == "longformer":
-    from attention_longformer import LongformerAttention
-    type["longformer"] = LongformerAttention
-
 elif model_config["attn_type"] == "linformer":
     from attention_linformer import LinformerAttention
     type["linformer"] = LinformerAttention
-
-elif model_config["attn_type"] in ["ssnmf", "id", "intp"]:
-    import attention_ssnmf_id_intp
-    type["ssnmf"] = attention_ssnmf_id_intp.NMFAttention
-    type["id"] = attention_ssnmf_id_intp.IDAttention
-    type["intp"] = attention_ssnmf_id_intp.IntpAttention
 
 else:
     raise Exception()
