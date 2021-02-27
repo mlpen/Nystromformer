@@ -11,7 +11,12 @@ class NystromAttention(nn.Module):
         self.num_head = config["num_head"]
 
         self.num_landmarks = config["num_landmarks"]
-        self.seq_len = config["max_seq_len"]
+        self.seq_len = config["seq_len"]
+        
+        if "inv_coeff_init_option" in config:
+            self.init_option = config["inv_init_coeff_option"]
+        else:
+            self.init_option = "original"
 
         self.use_conv = "conv_kernel_size" in config
         if self.use_conv:
@@ -46,7 +51,13 @@ class NystromAttention(nn.Module):
     def iterative_inv(self, mat, n_iter = 6):
         I = torch.eye(mat.size(-1), device = mat.device)
         K = mat
-        V = 1 / (torch.max(torch.sum(torch.abs(K), dim = -2)) * torch.max(torch.sum(torch.abs(K), dim = -1))) * K.transpose(-1, -2)
+        
+        if self.init_option == "original":
+            V = 1 / torch.max(torch.sum(K, dim = -2)) * K.transpose(-1, -2)
+        else:
+            a = torch.max(torch.sum(K, dim = -2), dim = -1).values[:, :, None, None]
+            V = 1 / a * K.transpose(-1, -2)
+            
         for _ in range(n_iter):
             KV = torch.matmul(K, V)
             V = torch.matmul(0.25 * V, 13 * I - torch.matmul(KV, 15 * I - torch.matmul(KV, 7 * I - KV)))
