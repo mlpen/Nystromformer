@@ -13,8 +13,8 @@ class NystromAttention(nn.Module):
         self.num_landmarks = config["num_landmarks"]
         self.seq_len = config["seq_len"]
         
-        if "inv_init_option" in config:
-            self.init_option = config["inv_init_option"]
+        if "inv_coeff_init_option" in config:
+            self.init_option = config["inv_init_coeff_option"]
         else:
             self.init_option = "original"
 
