@@ -14,6 +14,7 @@ class NystromAttention(nn.Module):
         self.seq_len = config["seq_len"]
         
         if "inv_coeff_init_option" in config:
+            # Thanks @sbodenstein for pointing out the scale difference between the math formula and the original coefficient computation
             self.init_option = config["inv_init_coeff_option"]
         else:
             self.init_option = "original"
