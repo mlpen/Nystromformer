@@ -1,5 +1,9 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
+### Feb 27th, 2021
+We fixed the coefficient computation of initial Z_0, which can lead to faster convergence to pseudoinverse. The original implementation has a scale difference. 
+We leave the original as a default option. The added initialization is recommended. Thanks @sbodenstein pointing out the difference. 
+
 ### Feb 17th, 2021
 We have released the source code of PyTorch reimplementation of Long Range Arena (LRA) benchmark, which is to evaluate the generalization ability of models on diverse longer sequence tasks. Our codes are based on the [official Jax LRA implementation](https://github.com/google-research/long-range-arena). Reformer PyTorch implementation is from [huggingface](https://github.com/huggingface/transformers) and Performer PyTorch implementation is from [lucidrains](https://github.com/lucidrains/performer-pytorch).
 

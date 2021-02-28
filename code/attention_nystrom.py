@@ -14,7 +14,6 @@ class NystromAttention(nn.Module):
         self.seq_len = config["seq_len"]
         
         if "inv_coeff_init_option" in config:
-            # Thanks @sbodenstein for pointing out the scale difference between the math formula to compute the coefficient of Z_0 and the original implementation
             self.init_option = config["inv_init_coeff_option"]
         else:
             self.init_option = "original"
@@ -53,11 +52,13 @@ class NystromAttention(nn.Module):
         I = torch.eye(mat.size(-1), device = mat.device)
         K = mat
         
+        # The entries of K are positive and ||K||_{\infty} = 1 due to softmax
         if self.init_option == "original":
+            # This original implementation is more conservative to compute coefficient of Z_0. 
             V = 1 / torch.max(torch.sum(K, dim = -2)) * K.transpose(-1, -2)
         else:
-            a = torch.max(torch.sum(K, dim = -2), dim = -1).values[:, :, None, None]
-            V = 1 / a * K.transpose(-1, -2)
+            # This is the exact coefficient computation, 1 / ||K||_1, of initialization of Z_0, leading to faster convergence. 
+            V = 1 / torch.max(torch.sum(K, dim = -2), dim = -1).values[:, :, None, None] * K.transpose(-1, -2)
             
         for _ in range(n_iter):
             KV = torch.matmul(K, V)
