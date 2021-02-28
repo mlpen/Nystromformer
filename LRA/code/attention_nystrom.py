@@ -55,8 +55,7 @@ class NystromAttention(nn.Module):
         if self.init_option == "original":
             V = 1 / torch.max(torch.sum(K, dim = -2)) * K.transpose(-1, -2)
         else:
-            a = torch.max(torch.sum(K, dim = -2), dim = -1).values[:, :, None, None]
-            V = 1 / a * K.transpose(-1, -2)
+            V = 1 / torch.max(torch.sum(K, dim = -2), dim = -1).values[:, :, None, None] * K.transpose(-1, -2)
             
         for _ in range(n_iter):
             KV = torch.matmul(K, V)
