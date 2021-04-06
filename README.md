@@ -1,5 +1,9 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
+### April 6, 2021
+We extended segment-means to compute landmarks without requiring the sequence length divisible by the number of landmarks. Then we used this Nystromformer to 
+perform deployment of T2T-Vit_t-14 for image classification without retraining. Our T2T-ViT-Nys-14 achieves 78% top-1 accuracy, outperforming performer/Linformer +4.3%/+12.7% for the direct deployment. 
+
 ### Feb 27th, 2021
 We fixed the coefficient computation of initial Z_0, which can lead to faster convergence to pseudoinverse. The original implementation has a scale difference. 
 We leave the original as a default option. The added initialization is recommended. Thanks @sbodenstein for pointing out the difference. 
