@@ -1,0 +1,35 @@
+{
+  "data_folder": "512-roberta",
+  "model": {
+      "mixed_precision": true,
+      "shared_weight": false,
+      "vocab_size": 50265,
+      "num_sen_type": 1,
+      "max_seq_len": 512,
+      "embedding_dim": 128,
+      "dim": 128,
+      "hidden_dim": 256,
+      "num_layers": 1,
+      "dropout_prob": 0.1,
+      "num_head": 2,
+      "head_dim": 64,
+      "model_type": "vanila_transformer"
+  },
+  "pretraining_setting": {
+      "batch_size": 128,
+      "learning_rate": 0.0001,
+      "warmup": 0.01,
+      "batches_per_report": 10,
+      "batches_per_epoch": 100,
+      "epoch": 500,
+      "validate_batches_per_epoch": 20
+  },
+  "gpu_setting": {
+    "inst_per_gpu": 16
+  },
+  "dataset": {
+    "bert_dataset": true,
+    "files_per_batch": 16,
+    "keep_prob": 0.5
+  }
+}

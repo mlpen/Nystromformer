@@ -1,0 +1,43 @@
+{
+  "model": {
+      "mixed_precision": true,
+      "vocab_size": 30000,
+      "num_sen_type": 2,
+      "max_seq_len": 512,
+      "num_classes": 4,
+      "shared_weight": false,
+      "num_layers": 1,
+      "dropout_prob": 0.1,
+      "embedding_dim": 128,
+      "dim": 128,
+      "hidden_dim": 256,
+      "num_head": 2,
+      "head_dim": 64,
+      "model_type": "vanila_transformer"
+  },
+  "pretraining_setting": {
+      "batch_size": 256,
+      "accumu_steps": 1,
+      "learning_rate": 0.0001,
+      "warmup": 0.01,
+      "batches_per_report": 20,
+      "batches_per_epoch": 2000,
+      "epoch": 500,
+      "validate_batches_per_epoch": 100
+  },
+  "dataset": {
+      "vocab_size": 30000,
+      "num_workers": 16,
+      "files_per_batch": 512,
+      "max_seq_len": 512,
+      "drop_inst_prob": 0.9,
+      "short_seq_prob": 0.1,
+      "max_mask_token": 80,
+      "max_mask_ratio": 0.15,
+      "mask_token_prob": {
+          "mask": 0.8,
+          "original": 0.1,
+          "random": 0.1
+      }
+  }
+}
