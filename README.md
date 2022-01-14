@@ -1,5 +1,8 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
+### January 11, 2021
+Nystromformer has been added to huggingface by @novice03. huggingface documentation can be found [here](https://huggingface.co/docs/transformers/master/model_doc/nystromformer).
+
 ### April 6, 2021
 We extended segment-means to compute landmarks without requiring the sequence length divisible by the number of landmarks. Then we used this Nystromformer to 
 perform deployment of T2T-Vit_t-14 for image classification without retraining. Our T2T-ViT-Nys-14 achieves 78% top-1 accuracy, outperforming performer/Linformer +4.3%/+12.7% for the direct deployment. 
