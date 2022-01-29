@@ -1,6 +1,6 @@
 # Nystromformer: A Nystrom-based Algorithm for Approximating Self-Attention
 
-### January 11, 2021
+### January 11, 2022
 Nystromformer has been added to huggingface by @novice03. huggingface documentation can be found [here](https://huggingface.co/docs/transformers/master/model_doc/nystromformer).
 
 ### April 6, 2021
